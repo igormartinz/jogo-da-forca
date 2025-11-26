@@ -3,6 +3,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+
 public class JogoDaForca {
 
     private String palavraSecreta;
@@ -15,7 +16,7 @@ public class JogoDaForca {
         System.out.println("\nComo jogar: Escolha uma letra até que a palavra se complete, mas cuidado você terá apenas seis chaces!!! \n");
 
         BancoDePalavras listaDePalavras = new BancoDePalavras();
-        palavraSecreta = listaDePalavras.palavraAleatoria();
+        palavraSecreta = listaDePalavras.palavraAleatoria().toUpperCase();
 
         /// Cria um array com letras da palavra.
         progresso = palavraSecreta.toCharArray();
@@ -31,11 +32,13 @@ public class JogoDaForca {
         while (tentativas < 6 && !resultado()) {
             desenharForca();
 
-            System.out.println("Letras já digitadas: " + this.letrasErradas);
-            System.out.println("Palavra Secreta:" + Arrays.toString(this.progresso));
-            System.out.print("Digite uma letra:");
+            System.out.print("Letras já digitadas: ");
+            for(char letra : this.letrasErradas){
+                System.out.print(letra + " ");
+            }
+            System.out.print("\nDigite uma letra:");
 
-            char letra = scan.next().toLowerCase().charAt(0);
+            char letra = scan.next().toUpperCase().charAt(0);
 
             if (palavraSecreta.indexOf(letra) >= 0) {
                 atualizarProgresso(letra);
@@ -48,9 +51,11 @@ public class JogoDaForca {
         desenharForca();
 
         if (resultado()) {
-            System.out.println("Parábens, você venceu");
+            System.out.println("\n\nParábens, você venceu!");
+            System.out.println("A palavra é "+ this.palavraSecreta);
         } else {
-            System.out.println("Que pena, você perdeu");
+            System.out.println("\n\nQue pena, você perdeu!");
+            System.out.println("A palavra é "+ this.palavraSecreta);
         }
     }
 
@@ -76,8 +81,11 @@ public class JogoDaForca {
                 System.out.println("    |     |");
                 System.out.println("    |");
                 System.out.println("    |");
-                System.out.println("    |");
-                System.out.println("    |");
+                System.out.print("    |             ");
+                for(char letra : this.progresso){
+                    System.out.print(letra + "");
+                }
+                System.out.println("\n    |");
                 System.out.println("    |");
                 System.out.println("-------------\n");
                 break;
@@ -86,8 +94,11 @@ public class JogoDaForca {
                 System.out.println("    |     |");
                 System.out.println("    |     O");
                 System.out.println("    |");
-                System.out.println("    |");
-                System.out.println("    |");
+                System.out.print("    |             ");
+                for(char letra : this.progresso){
+                    System.out.print(letra + "");
+                }
+                System.out.println("\n    |");
                 System.out.println("    |");
                 System.out.println("-------------\n");
                 break;
@@ -96,8 +107,11 @@ public class JogoDaForca {
                 System.out.println("    |     |");
                 System.out.println("    |     O");
                 System.out.println("    |     |");
-                System.out.println("    |");
-                System.out.println("    |");
+                System.out.print("    |             ");
+                for(char letra : this.progresso){
+                    System.out.print(letra + "");
+                }
+                System.out.println("\n    |");
                 System.out.println("    |");
                 System.out.println("-------------\n");
                 break;
@@ -106,8 +120,11 @@ public class JogoDaForca {
                 System.out.println("    |     |");
                 System.out.println("    |     O");
                 System.out.println("    |     |\\");
-                System.out.println("    |");
-                System.out.println("    |");
+                System.out.print("    |             ");
+                for(char letra : this.progresso){
+                    System.out.print(letra + "");
+                }
+                System.out.println("\n    |");
                 System.out.println("    |");
                 System.out.println("-------------\n");
                 break;
@@ -116,8 +133,11 @@ public class JogoDaForca {
                 System.out.println("    |     |");
                 System.out.println("    |     O");
                 System.out.println("    |    /|\\");
-                System.out.println("    |");
-                System.out.println("    |");
+                System.out.print("    |             ");
+                for(char letra : this.progresso){
+                    System.out.print(letra + "");
+                }
+                System.out.println("\n    |");
                 System.out.println("    |");
                 System.out.println("-------------\n");
                 break;
@@ -126,8 +146,11 @@ public class JogoDaForca {
                 System.out.println("    |     |");
                 System.out.println("    |     O");
                 System.out.println("    |    /|\\");
-                System.out.println("    |    /");
-                System.out.println("    |");
+                System.out.print("    |    /        ");
+                for(char letra : this.progresso){
+                    System.out.print(letra + "");
+                }
+                System.out.println("\n    |");
                 System.out.println("    |");
                 System.out.println("-------------\n");
                 break;
