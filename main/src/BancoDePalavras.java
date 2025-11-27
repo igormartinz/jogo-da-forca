@@ -2,18 +2,74 @@ import java.util.Random;
 
 public class BancoDePalavras {
 
-    public String palavraAleatoria() {
+    public String palavraAleatoria(int tema) {
 
-        String [] listaPalavras = {
-                "aventura", "borboleta", "relogios", "maratona", "nebulosa", "granito", "horizonte", "oceanico", "castanho", "formiguei", "bicicletas", "diamante", "florestas", "serpente", "guerreiro", "pandorga", "melancia", "xadrezes", "triatlon", "embarcar", "girassol", "abismoide", "magistral", "corromper", "transito", "serpentes", "vitralha", "piramide", "golfinho", "fragrante", "nordeste", "marisqueo", "planetas", "satelite", "sobrenviv", "reliquias", "historiar", "pinturao", "orquidea", "sinfonia", "camarotes", "algoritmos", "nebulizar", "triangulo", "espirais", "navegante", "migracao", "escultor", "colmeias", "galaxias", "literatura", "amizades", "paralelo", "estampado", "frutificar", "adormeci", "borbulhar", "carpintei", "dominante", "silencios", "roldanas", "acrobatas", "mensageiro", "desbravar",
-                "alfaiate", "protetor", "molduras", "quebravél", "cafezal", "tempestes", "nitrogens", "rodoviaro", "reviravol", "esfingica", "costelada", "alvoradas", "campestre", "litoranea", "foguetes", "mascarado", "imaginado", "turbinas", "planetario", "borrachei", "luminosos", "oceaniado", "cronometo", "trianglar", "auditiva", "estaciona", "torneiras", "aventurei", "picoleira", "carpintar", "ilusionar", "estalagem", "esvoacar", "barqueiro", "marinheiro", "passarela", "dominante", "navegacao", "portuaria", "artesanato", "cozinheiro", "laranjeira", "hectarees", "madeirais", "estantear", "giratorias", "generosos", "luminosas", "fulgurante", "inventivo", "tartaruga", "crocodilo", "dentritas", "parabolas", "mirabolan", "orvalhoes", "musculoso", "aeromotor", "heliponto", "montanhaz", "escalador", "pedregoso",
-                "folhagens", "floreados", "espadarte", "cangaceiro", "estrangei", "academico", "pastoreio", "linguista", "arqueiros", "imaginado", "fragancia", "laborioso", "requintar", "desperdil", "majestade", "autoralha", "rodopiante", "narrativo", "empanadas", "chalaneiro", "violetado", "enigmatico", "sortilego", "dicionario", "hibernado", "chocolate", "fragmento", "artesanais", "ventanias", "sussurros", "noturnal", "cintilante", "carpideira", "curvatura", "ascensao", "despertao", "horizonte", "destemido", "flamengos", "alvoracao", "lanternas", "paneladas", "navieiros", "mergulho", "mergulhar", "retroceso", "caminhado", "galinheiro", "bravatear", "relampejo", "escarlate", "mandacaru", "cintilado", "celebrada", "patinador", "agricultor", "estadista", "luminosos", "arcadismo", "temporalha", "genericos", "biodivers",
-                "vinagrete", "calculado", "inflamado", "misturado", "esquentar", "congelado", "ambulante", "remakeado", "codifiquei", "floricult", "romantico", "sombreamo", "petroleos", "vestibulo", "amedrontar", "tecelagem", "envernizar", "carpintaria", "colecionar", "campeonatos", "eletricista", "mergulhador", "lanternagem", "armazenado", "embarcacao", "jiboiasse", "maracujas", "pandemonio", "colossais", "ancestral", "misticismo", "melodrama", "guardador", "inspirador", "gravitacao", "lancamento", "escudeiro", "serenatas", "cavalheiro", "meteorito", "pedaleiros", "transbordo", "soberanos", "burguesia", "espantalho", "arvoredo", "toboganas", "rebanhados", "liquidacao", "aquecimento", "suprimentos", "relatancia", "navegantes", "mugidoiro", "benfeitores", "saborizantes", "afetuosos", "contemplar", "ilusionista",
-                "replicavel", "montanhoso", "lagostinha", "giramentos", "musculares", "escalonada", "oceaniadas", "barulhenta", "aeroviaria", "mercantil", "borbulhante", "respingado", "vaporizar", "nucleares", "harmonioso", "golpistas", "escaravelho", "temporalidade", "luminosidade", "aventurar", "pacotinhos", "instrumentar", "trilhadores", "majestosos", "horizontear", "incansavel", "pedregulhos", "savanicas", "aquarelista", "manufatura", "interrogado", "despertei", "adocicados", "resignado", "cilindrico", "travessias", "cabrestante", "inventario", "odorizador", "flamboyant", "veludosos", "cronometros", "borrifador", "manivelado", "sacerdotes", "estalactite", "envernizado", "florestal", "alimentado", "predilecao", "caprichosa", "intrepidos", "valentonas"
-        };
+        String[] listaPalavras = escolhaTema(tema);
 
         Random random = new Random();
 
         return listaPalavras[random.nextInt(listaPalavras.length)];
+    }
+
+    private String[] escolhaTema(int tema) {
+
+        switch (tema) {
+            case 1:
+                String[] animais = {"Elefante", "Girafa", "Gorila", "Raposa", "Canguru", "Jacaré", "Coelho", "Falcão", "Antílope", "Coruja", "Pantera",
+                        "Guepardo", "Doninha", "Marreco", "Tartaruga", "Golfinho", "Camaleão", "Lagarto", "Mosquito", "Mariposa", "Libélula", "Pardela",
+                        "Ariranha", "Lontra", "Suricato", "Flamingo", "Avestruz", "Babuíno", "Camelo", "Dromedário", "Pelicano", "Albatroz", "Pinguim",
+                        "Codorna", "Faisão", "Gavião", "Morcego", "Bisonte", "Canídeo", "Cervídeo", "Felídeo", "Molusco", "Sucuri", "Cascavel", "Jararaca",
+                        "Tamanduá", "Formiga", "Gafanhoto", "Besouro", "Rinoceronte"};
+                return animais;
+            case 2:
+                String[] frutas = {"Abacaxi", "Banana", "Goiaba", "Laranja", "Melancia", "Acerola", "Nectarina", "Pitanga", "Cupuaçu", "Jabuticaba",
+                        "Rambutan", "Mangaba", "Macauba", "Cambuci", "Grumixama", "Atemoia", "Bacuri", "Buriti", "Carambola", "Ciriguela", "Framboesa",
+                        "Guabiroba", "Guarana", "Lichia", "Murici", "Nespera", "Pupunha", "Tamarindo", "Toranja", "Pitomba", "Mangostao", "Cabeludinha",
+                        "Jenipapo", "Marmelo", "Damasco", "Maracuja", "Mirtilo", "Biriba", "Graviola", "Groselha", "Feijoa", "Ameixeira"};
+                return frutas;
+            case 3:
+                String[] paises = {"Brasil", "Canadá", "Alemanha", "Espanha", "França", "Itália", "Suécia", "Noruega", "Finlândia", "Portugal", "Bolívia",
+                        "Argentina", "Uruguai", "Colômbia", "Austrália", "Dinamarca", "Bélgica", "Hungria", "Polônia", "Bielorrússia", "Rússia", "Ucrânia",
+                        "Panamá", "Guiana", "Suriname", "Barbados", "Trinidad", "Jamaica", "Equador", "Eritreia", "Etiópia", "Burundi", "Ruanda", "Somália",
+                        "Tunísia", "Namíbia", "Botsuana", "Lesoto", "Essuatíni", "Gâmbia", "Zâmbia", "Zimbábue", "Comores", "Maldivas", "Sérvia", "Albânia",
+                        "Croácia", "Romênia", "Bulgária"};
+                return paises;
+            case 4:
+                String[] cores = {"Amarelo","Vermelho","Laranja","Magenta","Castanho","Rosado","Azulada","Esmeralda","Safira","Turquesa","Marinho",
+                        "Caramelo","Camurça","Cereja","Chocolate","Coralina","Damasco","Fucsia","Grafite","Jadeado","Lavanda","Malvar","Marfim","Prateado",
+                        "Dourado","Púrpura","Escarlate","Ferrugem","Granito","Cinzento","Oliváceo","Pastelão","Salmão","Sanguíneo","Tangerina","Verdete",
+                        "Viridiano","Ametista","Anilado","Bordôtinto","Cobalto","Lilasado","Pardento","Rubiado","Serpentina","Turquesado","Ultravioleta",
+                        "Verdinho","Azulado","Castanhel"};
+                return cores;
+            case 5:
+                String[] objetos = {"Caderno","Tesoura","Garrafa","Janela","Mochila","Teclado","Armário","Gaveta","Colher","Cadeira","Abajur","Espelho",
+                        "Seringa","Travesseiro","Estante","Prateleira","Almofada","Bandeja","Balcão","Caixote","Carimbo","Chaveiro","Cortina","Envelope",
+                        "Escova","Estilete","Furadeira","Martelo","Monitor","Notebook","Panela","Prancha","Ralador","Relógio","Torrador","Torneira",
+                        "Trincha","Vassoura","Xícara","Enxada","Lixeira","Recepiente","CanecaGrande","Frigideira","Luminária"};
+                return objetos;
+            case 6:
+                String[] times = {"Flamengo","Palmeiras","Corinthians","Cruzeiro","Santos","Athletico","Botafogo","Fortaleza","Juventude","Internacional",
+                        "Náutico","Fluminense","Brusque","Capivariano","Chapecoense","Criciuma","Gremio","Londrina","Mirassol","Paulista","Arsenal",
+                        "Chelsea","Everton","Juventus","Monaco","Napoli","Granada","Stuttgart","Hannover","Valencia","Cagliari","Dortmund","Hertha",
+                        "Feyenoord","Sporting","Salzburg","Spartak","Galatasaray","Besiktas","SevillaFC","Benfica","Porto","Atletico","Villarreal",
+                        "RealMadrid","Barcelona","Bordeaux","Marseille","PSG"};
+                return times;
+                case 7:
+                String[] personagens = {"Naruto","Vegeta","Batman","Coringa","Homero","Pikachu","Shaggy","Scooby","Gumball","Mordecai","Ichigo","Sakura",
+                        "Sasuke","Hinata","Minato","Jiraiya","Madara","Tsunade","Itachi","Rengoku","Zenitsu","Nezuko","Tanjiro","Gajeel","Zeldris",
+                        "Meliodas","Gowther","Escanor","Merlin","Arthur","Percival","Kratos","Danteo","Baymax","Stitch","Rafiki","Rengoku2?","Kenshin",
+                        "Voldemort","Severus","Dumbledore","Legolas","Gandalf","FrodoBagg","Samwise","Aragorn","Eowyn","Thranduil"};
+                return personagens;
+                case 8:
+                String[] comidas = {"Lasanha","Feijoada","Macarrão","Empadas","Farofa","Nhoque","Risoto","Pasteis","Brigadeiro","Canjica","Rabada",
+                        "Sarapatel","Buchada","Moqueca","Vatapá","Cuscuz","Dobradinha","Mungunzá","Pamonha","Pirarucu","Tapioca","Caruru","Manjar",
+                        "Quindim","Almondega","Estrogonofe","Polenta","Feijao","Churrasco","Torresmo","Linguiça","Costela","Bolacha","Biscoito","Pescada",
+                        "Sardinha","Salmão","Bacalhau","Pamonha","Pastelão","Gnocchi","Caponata","Escabeche","Camarão","Ratatouille","Carpaccio"};
+                return comidas;
+            default:
+                String[] erro = {"erro"};
+                return erro;
+        }
+
     }
 }

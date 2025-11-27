@@ -14,9 +14,14 @@ public class JogoDaForca {
     public void iniciar() {
         System.out.println("\n\n\nSeja bem-vindo ao Jogo da Forca!");
         System.out.println("\nComo jogar: Escolha uma letra até que a palavra se complete, mas cuidado você terá apenas seis chaces!!! \n");
+        System.out.print("Escolha o tema:");
+        System.out.println("");
+
+        Scanner scan = new Scanner(System.in);
+        int tema = scan.nextInt();
 
         BancoDePalavras listaDePalavras = new BancoDePalavras();
-        palavraSecreta = listaDePalavras.palavraAleatoria().toUpperCase();
+        palavraSecreta = listaDePalavras.palavraAleatoria(tema).toUpperCase();
 
         /// Cria um array com letras da palavra.
         progresso = palavraSecreta.toCharArray();
@@ -27,13 +32,12 @@ public class JogoDaForca {
         /// Utiliza o HashSet para que não exista letras duplicadas.
         letrasErradas = new HashSet<>();
 
-        Scanner scan = new Scanner(System.in);
 
         while (tentativas < 6 && !resultado()) {
             desenharForca();
 
             System.out.print("Letras já digitadas: ");
-            for(char letra : this.letrasErradas){
+            for (char letra : this.letrasErradas) {
                 System.out.print(letra + " ");
             }
             System.out.print("\nDigite uma letra:");
@@ -52,10 +56,10 @@ public class JogoDaForca {
 
         if (resultado()) {
             System.out.println("\n\nParábens, você venceu!");
-            System.out.println("A palavra é "+ this.palavraSecreta);
+            System.out.println("A palavra é " + this.palavraSecreta);
         } else {
             System.out.println("\n\nQue pena, você perdeu!");
-            System.out.println("A palavra é "+ this.palavraSecreta);
+            System.out.println("A palavra é " + this.palavraSecreta);
         }
     }
 
@@ -82,7 +86,7 @@ public class JogoDaForca {
                 System.out.println("    |");
                 System.out.println("    |");
                 System.out.print("    |             ");
-                for(char letra : this.progresso){
+                for (char letra : this.progresso) {
                     System.out.print(letra + "");
                 }
                 System.out.println("\n    |");
@@ -95,7 +99,7 @@ public class JogoDaForca {
                 System.out.println("    |     O");
                 System.out.println("    |");
                 System.out.print("    |             ");
-                for(char letra : this.progresso){
+                for (char letra : this.progresso) {
                     System.out.print(letra + "");
                 }
                 System.out.println("\n    |");
@@ -108,7 +112,7 @@ public class JogoDaForca {
                 System.out.println("    |     O");
                 System.out.println("    |     |");
                 System.out.print("    |             ");
-                for(char letra : this.progresso){
+                for (char letra : this.progresso) {
                     System.out.print(letra + "");
                 }
                 System.out.println("\n    |");
@@ -121,7 +125,7 @@ public class JogoDaForca {
                 System.out.println("    |     O");
                 System.out.println("    |     |\\");
                 System.out.print("    |             ");
-                for(char letra : this.progresso){
+                for (char letra : this.progresso) {
                     System.out.print(letra + "");
                 }
                 System.out.println("\n    |");
@@ -134,7 +138,7 @@ public class JogoDaForca {
                 System.out.println("    |     O");
                 System.out.println("    |    /|\\");
                 System.out.print("    |             ");
-                for(char letra : this.progresso){
+                for (char letra : this.progresso) {
                     System.out.print(letra + "");
                 }
                 System.out.println("\n    |");
@@ -147,7 +151,7 @@ public class JogoDaForca {
                 System.out.println("    |     O");
                 System.out.println("    |    /|\\");
                 System.out.print("    |    /        ");
-                for(char letra : this.progresso){
+                for (char letra : this.progresso) {
                     System.out.print(letra + "");
                 }
                 System.out.println("\n    |");
