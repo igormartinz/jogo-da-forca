@@ -12,16 +12,25 @@ public class JogoDaForca {
     private int tentativas = 0;
 
     public void iniciar() {
-        System.out.println("\n\n\nSeja bem-vindo ao Jogo da Forca!");
-        System.out.println("\nComo jogar: Escolha uma letra até que a palavra se complete, mas cuidado você terá apenas seis chaces!!! \n");
-        System.out.print("Escolha o tema:");
-        System.out.println("");
+        System.out.println("\n\n\n========================================");
+        System.out.println("|       J O G O   D A   F O R C A      |");
+        System.out.println("========================================");
+        System.out.println("Bem-vindo(a)");
+        System.out.println("\nAdivinhe a palavra letra por letra.");
+        System.out.println(">>> Você terá apenas 6 chances.");
+        System.out.println(">>> Insira caracteres válidos.");
+        System.out.println("\n== Escolha um tema ==");
+        System.out.println("[1] Animais     [2] Frutas");
+        System.out.println("[3] Países      [4] Cores");
+        System.out.println("[5] Objetos     [6] Times de Futebol");
+        System.out.println("[7] Comidas     [8] Personagens");
+        System.out.print("Tema escolhido:");
 
         Scanner scan = new Scanner(System.in);
         int tema = scan.nextInt();
 
-        BancoDePalavras listaDePalavras = new BancoDePalavras();
-        palavraSecreta = listaDePalavras.palavraAleatoria(tema).toUpperCase();
+        BancoDePalavras palavras = new BancoDePalavras();
+        palavraSecreta = palavras.palavraAleatoria(tema).toUpperCase();
 
         /// Cria um array com letras da palavra.
         progresso = palavraSecreta.toCharArray();
@@ -34,13 +43,16 @@ public class JogoDaForca {
 
 
         while (tentativas < 6 && !resultado()) {
+            System.out.println("\n\n\n\n\n\nTEMA: " + palavras.getTema());
+
             desenharForca();
 
-            System.out.print("Letras já digitadas: ");
+            System.out.print("Letras já usadas: ");
             for (char letra : this.letrasErradas) {
                 System.out.print(letra + " ");
             }
-            System.out.print("\nDigite uma letra:");
+
+            System.out.print("\nInsira uma letra:");
 
             char letra = scan.next().toUpperCase().charAt(0);
 
@@ -55,10 +67,10 @@ public class JogoDaForca {
         desenharForca();
 
         if (resultado()) {
-            System.out.println("\n\nParábens, você venceu!");
+            System.out.println("\n\nMeus parábens, você venceu!");
             System.out.println("A palavra é " + this.palavraSecreta);
         } else {
-            System.out.println("\n\nQue pena, você perdeu!");
+            System.out.println("\n\nQue pena... não foi desta vez!");
             System.out.println("A palavra é " + this.palavraSecreta);
         }
     }
